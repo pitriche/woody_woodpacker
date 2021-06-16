@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: user42 <user42@student.42.fr>              +#+  +:+       +#+         #
+#    By: pitriche <pitriche@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/07 14:21:44 by pitriche          #+#    #+#              #
-#    Updated: 2021/06/14 13:23:49 by user42           ###   ########.fr        #
+#    Updated: 2021/06/16 14:39:12 by pitriche         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,10 @@ CINCLUDE = -I include
 NAME = woody_woodpacker
 
 HEADERS = \
-#include/scop.h		\
+include/woody.h	\
 
 
-SRC_FILES = 	\
+SRC_FILES = \
 main.c		\
 
 # ############################################################################ #
