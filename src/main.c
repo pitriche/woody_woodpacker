@@ -6,7 +6,7 @@
 /*   By: pitriche <pitriche@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:24:41 by pitriche          #+#    #+#             */
-/*   Updated: 2021/06/16 16:58:17 by pitriche         ###   ########.fr       */
+/*   Updated: 2021/06/17 14:44:55 by pitriche         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,14 @@ static void	print_header(elf64_header header)
 static void	print_program_header(elf64_program_header header)
 {
 	printf("segment type : %d\n", header.segment_type);
-	// printf("endian :      %d\n", header.endianess);
-	// printf("elf version : %d\n\n", header.elf_version);
+	printf("flags :        %#x\n\n", header.flags);
+	
+	
+	printf("address :    %#x\n", header.segment_addr);
+	printf("size :       %ld\n", header.segment_size);
+	printf("image size : %ld\n\n", header.file_img_size);
 
-	// printf("type :        %d\n", header.type);
-	// printf("ISE :         %#x\n", header.instruction_set);
-	// printf("version :     %d\n\n", header.version);
-
+	printf("align : %ld\n", header.align);
 	// printf("prog header entry : %p\n", (void *)header.program_header);
 	// printf("sec header entry :  %p\n", (void *)header.section_header);
 	// printf("sec names offset :  %#x\n\n", header.section_names);
@@ -126,7 +127,8 @@ int	main(int ac, char **av)
 	for (unsigned i = 0; i < header.program_header_entries; ++i)
 	{
 		(void)!read(fd, prog_header + i, 0x38);
-
+		print_program_header(prog_header[i]);
+		printf("\n ###################################################################### \n");
 	}
 	close(fd);
 	return (0);
